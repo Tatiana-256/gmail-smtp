@@ -31,6 +31,7 @@ app.get("/", function (req, res) {
 });
 
 app.post("/sendMessage", async function (req, res) {
+  console.log('send')
   let { message, email, name } = req.body;
 
 
