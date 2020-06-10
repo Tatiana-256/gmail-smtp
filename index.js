@@ -31,9 +31,9 @@ app.post("/sendMessage", async function (req, res) {
     from: "Portfolio message", // sender address
     to: "tetiana.matviienko1@gmail.com", // list of receivers
     subject: "Portfolio message", // Subject line
-    html: `<div>${name}</div>
+    html: `<><div>${name}</div>
         <div>${email}</div>
-        <div>${message}</div>`, // html body
+        <div>${message}</div></>`, // html body
   });
 
   res.send("ok");
