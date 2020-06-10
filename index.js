@@ -5,13 +5,15 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://tatiana-256.github.io'
+}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   next();
+// });
 
 let smtp_login = process.env.SMTP_LOGIN || "-----";
 let smtp_password = process.env.SMTP_PASSWORD || "-----";
@@ -30,8 +32,7 @@ app.get("/", function (req, res) {
 
 app.post("/sendMessage", async function (req, res) {
   let { message, email, name } = req.body;
-  res.set("Access-Control-Allow-Origin", "*");
-  res.set("Access-Control-Allow-Credentials", "true");
+
 
   let info = await transporter.sendMail({
     from: "Portfolio message", // sender address
