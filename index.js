@@ -30,6 +30,8 @@ app.get("/", function (req, res) {
 
 app.post("/sendMessage", async function (req, res) {
   let { message, email, name } = req.body;
+  res.set("Access-Control-Allow-Origin", "*");
+  res.set("Access-Control-Allow-Credentials", "true");
 
   let info = await transporter.sendMail({
     from: "Portfolio message", // sender address
