@@ -10,13 +10,10 @@ app.use(cors({
 }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   next();
-// });
 
-let smtp_login = process.env.SMTP_LOGIN || "tatiana.beznosiuk@gmail.com";
-let smtp_password = process.env.SMTP_PASSWORD || "tatiana123";
+
+let smtp_login = process.env.SMTP_LOGIN || "----";
+let smtp_password = process.env.SMTP_PASSWORD || "-----";
 
 let transporter = nodemailer.createTransport({
   service: "gmail",
