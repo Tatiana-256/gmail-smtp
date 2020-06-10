@@ -15,8 +15,8 @@ app.use(bodyParser.json());
 //   next();
 // });
 
-let smtp_login = process.env.SMTP_LOGIN || "-----";
-let smtp_password = process.env.SMTP_PASSWORD || "-----";
+let smtp_login = process.env.SMTP_LOGIN || "tatiana.beznosiuk@gmail.com";
+let smtp_password = process.env.SMTP_PASSWORD || "tatiana123";
 
 let transporter = nodemailer.createTransport({
   service: "gmail",
